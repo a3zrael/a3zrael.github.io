@@ -91,7 +91,7 @@ const getRandomNumber = (num = 100): number => {
   return Math.floor(Math.random() * num) + 1;
 };
 
-const getRandomDesc = () => {
+const getRandomDesc = (): string => {
   const descriptions: string[] = [
     'Элегантный и мощный ноутбук с процессором Intel i7, 16 ГБ ОЗУ и SSD на 512 ГБ, идеален для работы и развлечений.',
     'Компактные беспроводные наушники с шумоподавлением и длительным временем работы от аккумулятора.',
