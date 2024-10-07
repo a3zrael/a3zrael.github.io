@@ -1,16 +1,28 @@
 import type { Meta } from '@storybook/react';
 import { Modal } from './Modal';
 
-// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Modal> = {
-  title: 'Example/Modal',
+  title: 'Components/Modal',
   component: Modal,
   tags: ['autodocs'],
   argTypes: {
-    visible: { control: 'color' },
+    visible: { control: 'boolean' },
+    children: { control: 'text' },
   },
 };
 
 export default meta;
 
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const VisibleModal = {
+  args: {
+    visible: true,
+    children: 'This is the content inside the modal', // JSX элемент
+  },
+};
+
+export const HiddenModal = {
+  args: {
+    visible: false,
+    children: 'This is the content inside the modal', // также JSX элемент
+  },
+};
