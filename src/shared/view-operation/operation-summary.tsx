@@ -9,12 +9,12 @@ interface OperationSummaryProps {
   description: string;
 }
 
-const OperationSummary: React.FC<OperationSummaryProps> = ({ amount, category, title, description }) => {
-  const truncateDescription = (description: string, maxLength: number): string => {
-    if (description?.length <= maxLength) return description;
-    return `${description?.slice(0, maxLength)}...`;
-  };
+const truncateDescription = (description: string, maxLength: number): string => {
+  if (description?.length <= maxLength) return description;
+  return `${description?.slice(0, maxLength)}...`;
+};
 
+const OperationSummary: React.FC<OperationSummaryProps> = ({ amount, category, title, description }) => {
   return (
     <div className="operation-summary">
       <div className="operation-summary__amount">Сумма: {amount} ₽</div>

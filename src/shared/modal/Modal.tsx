@@ -1,17 +1,16 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import './Modal.css';
 
 interface IModalProps {
   visible: boolean;
   children: React.ReactNode;
+  setIsVisible: (arg0: boolean) => void;
 }
 
-export const Modal: FC<IModalProps> = ({ visible, children }) => {
-  const [isVisible, setIsVisible] = useState(visible);
-
+export const Modal: FC<IModalProps> = ({ visible, setIsVisible, children }) => {
   return (
-    <div className={cn('overlay', { active: isVisible })}>
+    <div className={cn('overlay', { active: visible })}>
       <div className="modal">
         <div className="close-btn" onClick={() => setIsVisible(false)}>
           x
