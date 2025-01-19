@@ -1,33 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import tg from './telegram_logo.svg';
-import './App.css';
+import { Layout } from 'src/shared/layout/ui/Layout';
+import { ThemeProvider } from 'src/shared/context/theme-context/theme-context';
+import { LanguageProvider } from 'src/shared/context/lang-context/lang-context';
+import { ExampleCpomp } from 'src/shared/example-comp/ExampleComp';
+import './lang/lang';
+import './App.scss';
+
+import '../styles.scss';
 
 function App() {
+  const exampleArray = [...Array(5).keys()].map((i) => i + 1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Приветствую! Меня зовут Марусов Андрей, и я Junior разработчик. В мои руки уже попали React, различные
-          сборщики и state менеджеры, и я с удовольствием работаю с этими инструментами.{' '}
-        </p>
-        <p>
-          На этом курсе мне хочется укрепить свои знания, освоить новые технологии и, самое главное, начать глубже
-          понимать, как всё это работает изнутри.{' '}
-        </p>
-        <p>
-          После завершения курса я надеюсь на новый виток в своей карьере, будь то повышение на текущем месте или поиск
-          более интересной и высокооплачиваемой работы.
-        </p>
-        <div className="App-tg">
-          Контакты:
-          <a href="https://t.me/marusov_aa" target="_blank" rel="noopener noreferrer">
-            <img src={tg} className="App-tg-logo" alt="tg_logo" />
-          </a>
-        </div>
-      </header>
-    </div>
+    <ThemeProvider>
+      <LanguageProvider>
+        <Layout>
+          <header className="App-header">
+            <div className="content">
+              {exampleArray.map((i) => (
+                <ExampleCpomp key={i} />
+              ))}
+            </div>
+          </header>
+        </Layout>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
 
